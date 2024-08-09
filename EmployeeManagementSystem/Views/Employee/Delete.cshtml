@@ -1,0 +1,46 @@
+﻿@model EmployeeManagementSystem.Models.Employee
+<head runat="server">
+    <script type="text/javascript">
+
+        windowwindow.onload = window.history.forward(0);
+
+    </script>
+</head>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.EmployeeID)
+
+    <div>
+        @Html.LabelFor(model => model.FirstName)
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.LastName)
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Email)
+        @Html.DisplayFor(model => model.Email)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Phone)
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Position)
+        @Html.DisplayFor(model => model.Position)
+    </div>
+    <input type="submit" value="Delete" />
+}
+@section scripts{
+
+    <script type="text/javascript">
+
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+
+}
